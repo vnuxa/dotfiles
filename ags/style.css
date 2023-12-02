@@ -1,0 +1,174 @@
+
+/* button {
+} */
+.bar {
+    min-height: 0.5rem;
+}
+/* @define-color bg-dark rgb(22, 23, 24);
+@define-color bg-dark-transparent rgb(22, 23, 24,0.932); */
+
+button {
+
+    min-height: 0.5rem;
+}
+.left_bar {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+    background-color: rgba(22, 23, 24, 0.55);
+    border-radius: 1.25em;
+    padding: 0rem;
+    
+}
+
+.center_bar {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(22, 23, 24, 0.55);
+    border-radius: 1.25em;
+
+    padding-right: 1em;
+    padding-left: 0.5em;
+}
+.right_bar {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(22, 23, 24, 0.55);
+    border-radius: 1.25em;
+}
+.workspaces button{
+
+    font-weight: bold; 
+    border-radius: 100%;
+}
+
+
+.workspaces button,
+.system_tray button {
+    background-color: transparent;
+    color: #eee;
+    border-radius: 5em;
+}
+.media { 
+    background-color: transparent;
+    color: #eee;
+    border-radius: 5em;
+}
+
+.workspaces button:hover,
+.system_tray button:hover,
+.media:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #efefef;
+}
+
+.workspaces button:active,
+.system_tray button:active,
+.media:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.system_tray button.focused,
+.workspaces button.focused {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+
+
+.client-title {
+    
+}
+
+.audio-volume {
+    padding-right: 0.5em;
+}
+
+.notification image {
+    color: yellow;
+    margin-left: 1em;
+    padding-top: 0.5em; 
+}
+
+.clock {
+    margin: 0 20px;
+    font-weight: bold; 
+}
+
+progress, highlight {
+    background-color: aqua;
+    min-height: 8px;
+}
+
+
+/*? APP LAUNCHER */
+
+.applauncher-window {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+    background-color: rgba(22, 23, 24, 0.848);
+    border-radius: 1.25em;
+
+}
+.applauncher-item-icon {
+    margin-right: 0.5em;
+
+}
+.applauncher-item-title {
+    font-weight: bold; 
+
+}
+.applauncher-item-description {
+    margin-left: 0.5em;
+
+}
+
+/*? NOTIFICATIONS */
+
+.notification-title {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(24, 25, 26, 0.779);
+    border-radius: 1.25em;
+
+    padding-right: 1em;
+    padding-left: 0.5em;
+
+    margin-top: 0.5em;
+}
+.notification-object-image {
+    border-radius: 100%;
+    padding-right: 1em;
+    padding-left: 0.5em;
+
+}
+
+.notification-object-title {
+    font-size: 12px;
+}
+.notification-object-summary {
+    font-size: 16px;
+}
+
+.osd-notifs {
+    min-height: 2px;
+    min-width: 2px;
+}
+
+
+.test-background {
+    /* background-color: rgba(255, 0, 0, 0.138); */
+
+}
