@@ -23,8 +23,11 @@ function guessMessageType(summary) { // gives an icon from the summary title
 export const notification_title = ({notification_object, should_dissapear}) => {
     const destroy_itself = () => {
         print("destroying itself!! ");
-        //TODO: animations for destroying
-        whole_thing.destroy();
+        //TODO: animations for destroyin
+
+        setTimeout(function() {
+            whole_thing.destroy();
+        }, 500)
     };
     const whole_thing = Widget.Box({
         className: 'notification-title',
@@ -68,7 +71,19 @@ export const notification_title = ({notification_object, should_dissapear}) => {
         ]
     });
 
-    return whole_thing;
+    const revelear = Widget.Revealer({
+        // reveal_child: false,
+        child: whole_thing,
+        transition_duration: 500,
+        properties: [
+            ['should_dissapear', new Boolean(should_dissapear)],
+            ['destroy_itself', () => {destroy_itself()}]
+        ],
+        // transition: "crossfade",
+        transition: "slide_down",
+    })
+
+    return revelear;
 }
 
 export default () => Widget.Box({
@@ -84,6 +99,8 @@ export default () => Widget.Box({
                 return;
 
             const notification_widget = self._map.get(notification_id);
+            notification_widget.transition = "crossfade";
+            notification_widget.revealChild = !notification_widget.revealChild;
             notification_widget._destroy_itself();
         }],
 
@@ -98,9 +115,11 @@ export default () => Widget.Box({
             const notification_widget = notification_title({
                 notification_object: notification_object,
             });
+            
             self._map.set(notification_id, notification_widget)
             self.pack_end(self._map.get(notification_id), false, false, 0);
             self.show_all();
+            notification_widget.revealChild = !notification_widget.revealChild;
             print("got information from notification: ");
             print(notification_object['app-name']); 
             print(notification_object['summary']);
