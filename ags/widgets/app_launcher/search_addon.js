@@ -54,7 +54,41 @@ export default (Text) => {
         } catch (e) {
             // console.log(e);
         }
-    } else if (startsWithPrefix(Text)) {
+    } else if(Text.includes("nvim")) { //TODO: make it so that it will open neovim with a path
+        var pattern = "nvim";
+        const fullResult = Text.replace(pattern,'');
+        return [
+            [
+                {
+                    Icon: 'code-symbolic', 
+                    Title: 'Neovim', 
+                    Description: `Open neovim with: ${fullResult}`, // TODO read todo above
+                    className: 'app-math'
+                },
+                () => { //OnActivate
+                    execAsync(['bash', '-c', `kitty nvim ${fullResult}`, `&`]).catch(print); //Copy the math result to clipboard
+                },
+            
+            ]
+        ]
+    }else if(Text.includes("ncode")) { //EXPLANATION: clone of the top until i delete konsole
+        var pattern = "ncode";
+        const fullResult = Text.replace(pattern,'');
+        return [
+            [
+                {
+                    Icon: 'code-symbolic', 
+                    Title: 'Neovim', 
+                    Description: `Open neovim with: ${fullResult}`, // TODO read todo above
+                    className: 'app-math'
+                },
+                () => { //OnActivate
+                    execAsync(['bash', '-c', `kitty nvim ${fullResult}`, `&`]).catch(print); //Copy the math result to clipboard
+                },
+            
+            ]
+        ]
+    }  else if (startsWithPrefix(Text)) {
         var pattern = />/;
         const fullResult = Text.replace(/>/,'');
         return [
@@ -72,7 +106,7 @@ export default (Text) => {
             ]
         ]
     }
-
+    
     return [] //worst case scenario: return empty list
 }
 

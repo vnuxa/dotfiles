@@ -104,6 +104,7 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 } = {}) => {
     const entry = Widget.Entry({
         hexpand: true,
         css: `margin-bottom: ${spacing}px;`,
+        class_name: `applauncher-entry`,
 
         // set some text so on-change works the first time
         text: '-',
@@ -134,7 +135,9 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 } = {}) => {
                     }
                 }
             });
-
+            if (text.includes("nvim") || text.includes("ncode") ) {
+                found_match = false;
+            }
             if (found_match == false && text != '') {
                 // item.visible = false;
                 // print("hai :3",previous_invis.value, found_match && previous_invis.value == false && text != '');
@@ -178,6 +181,7 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 } = {}) => {
 
             // wrap the list in a scrollable
             Widget.Scrollable({
+                class_name: `applauncher-scrollbar`,
                 hscroll: 'never',
                 css: `
                     min-width: ${width}px;
