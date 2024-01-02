@@ -8,6 +8,18 @@ import { exec, execAsync } from 'resource:///com/github/Aylur/ags/utils.js';
 export const Workspaces = () => Widget.Box({
     className: 'workspaces',
 
+    // setup: self => self
+    //     .on('hyprland::active::workspaces', self => {
+    //         // generate an array [1..10] then make buttons from the index
+    //         const arr = Array.from({ length: 10 }, (_, i) => i + 1);
+    //         self.children = arr.map(i => Widget.Button({
+    //             onClicked: () => execAsync(`hyprctl dispatch workspace ${i}`),
+    //             onScrollUp: () => execAsync(`hyprctl dispatch workspace ${Hyprland.active.workspace.id + 1}`), 
+    //             onScrollDown: () => execAsync(`hyprctl dispatch workspace ${Hyprland.active.workspace.id - 1}`), 
+    //             child: Widget.Label(`${i}`),
+    //             className: Hyprland.active.workspace.id == i ? 'focused' : '',
+    //         }));
+    //     })
     connections: [[Hyprland.active.workspace, self => {
         // generate an array [1..10] then make buttons from the index
         const arr = Array.from({ length: 10 }, (_, i) => i + 1);

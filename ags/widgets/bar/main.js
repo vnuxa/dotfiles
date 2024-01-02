@@ -46,9 +46,10 @@ const Volume = () => Widget.Box({
             hexpand: true,
             drawValue: false,
             onChange: ({ value }) => Audio.speaker.volume = value,
-            connections: [[Audio, self => {
-                self.value = Audio.speaker?.volume || 0;
-            }, 'speaker-changed']],
+            setup: self => self
+                .hook(Audio, self => {
+                    self.value = Audio.speaker?.volume || 0;
+                }, 'speaker-changed'),
         }),
     ],
 });
@@ -62,7 +63,10 @@ export default ({ monitor } = {}) => Widget.Window({
     className: 'bar',
     monitor,
     anchor: ['top', 'left', 'right'],
-    exclusive: true,
+    exclusivity: 'exclusive',
+    // attribute: {
+    //     exclusivity: true,
+    // },
     child: Widget.CenterBox({
         startWidget: Left(),
         centerWidget: Center(),
