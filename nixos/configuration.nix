@@ -13,8 +13,9 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -23,7 +24,7 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
+  # action Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -32,8 +33,13 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+# Add nvidia video drivers for both X11 and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
+
   # Enable the X11 windowing system.
+
   services.xserver.enable = true;
+
 
   # use wayland
   # services.xserver.displayManager.defaultSession = "plasmawayland";
@@ -53,10 +59,21 @@
 
   hardware = {
     # OpenGL
-    opengl.enable = true;
+    opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+    };
 
     # most wayland compositors need this
-    nvidia.modesetting.enable = true;
+    nvidia = {
+        modesetting.enable = true;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        # Use nvidia open source kernel module (not to be confused with the Novoeu driver)
+        open = false; # its in alpha thats why it is disabled
+        # Add nvidia-settings menu (accesible by running nvidia-settings)
+        nvidiaSettings = true;
+    };
     
   };
 
@@ -101,7 +118,7 @@
 
   #? settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
-  hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
+  # hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
 
   programs.dconf.enable = true;
   
@@ -121,7 +138,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vnuxa = {
     isNormalUser = true;
-    description = "vnuxa-laptop";
+    description = "vnuxa";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       # firefox
@@ -169,6 +186,7 @@
     # fish shell
     fish
     foot # wayland terminal
+    kitty
     starship
     # note taking
     # obsidian #! add it back as a home-manager thing
@@ -205,8 +223,11 @@
     # misc
     bc
     killall
+
+    # vulkan graphics
+    # vulkan-loader
     # laptop battery
-    upower
+ #   upower
   ];
   # This is using a rec (recursive) expression to set and access XDG_BIN_HOME within the expression
   # For more on rec expressions see https://nix.dev/tutorials/first-steps/nix-language#recursive-attribute-set-rec
@@ -219,7 +240,7 @@
   services.gnome.gnome-keyring.enable = true;
   
   # for battery
-  services.upower.enable = true;
+#  services.upower.enable = true;
 
 systemd = {
   user.services.polkit-gnome-authentication-agent-1 = {
@@ -238,17 +259,7 @@ systemd = {
 };
 
 #configuring libva
-nixpkgs.config.packageOverrides = pkgs: {
-  vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-};
-hardware.opengl = { #! IMPORTANT: SWITCH THIS OFF IN YOUR DESKTOP CONFIG!! (same wiht the one above) as they are INTLE HYBRID ONLY! (just remove intel i think)
-  extraPackages = with pkgs; [
-    intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-    vaapiVdpau
-    libvdpau-va-gl
-  ];
-};
+#might need to somehow get vaapi stuff idk
 
   #   environment.etc = {
   #   "xdg/gtk-3.0".source =  ./gtk-3.0;
