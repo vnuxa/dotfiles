@@ -1,0 +1,365 @@
+
+/* button {
+} */
+* {
+  all: unset;  /*TODO: use this preset for everything, as it would give you 10x more control over size stuff, but you need to reorganize scaling! */
+}
+
+.bar {
+    min-height: 0.5rem;
+}
+/* @define-color bg-dark rgb(22, 23, 24);
+@define-color bg-dark-transparent rgb(22, 23, 24,0.932); */
+
+button {
+
+    min-height: 0.5rem;
+}
+.left_bar {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+    background-color: rgba(22, 23, 24, 0.65);
+    border-radius: 1.25em;
+    padding: 0rem;
+    
+}
+
+.center_bar {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(22, 23, 24, 0.65);
+    border-radius: 1.25em;
+
+    padding-right: 1em;
+    padding-left: 0.5em;
+
+    /* min-height: 500px; */
+}
+.right_bar {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(22, 23, 24, 0.65);
+    border-radius: 1.25em;
+}
+
+.popup-window {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(22, 23, 24, 0.85);
+    border-radius: 1.25em;
+
+    margin: 45px 45px;
+    padding-top: 5em;
+}
+.workspaces button{
+
+    font-weight: bold; 
+    border-radius: 100%;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+}
+
+
+
+/* .workspaces button, */
+.trayIcons button {
+    /* margin: 0px 5; */
+    min-width: 2.5em;
+    min-height: 0.5em;
+    background-color: transparent;
+    color: #eee;
+    border-radius: 5em;
+}
+.media { 
+    background-color: transparent;
+    color: #eee;
+    border-radius: 5em;
+    padding: 0rem 0.682rem;
+}
+
+.workspaces button:hover,
+.trayIcons button:hover,
+.media:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #efefef;
+}
+
+.workspaces button:active,
+.trayIcons button:active,
+.media:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.trayIcons button.focused,
+.workspaces button.focused {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+
+
+.client-title {
+    
+}
+
+.audio-volume {
+    padding-right: 0.5em;
+}
+
+.notification image {
+    color: yellow;
+    margin-left: 1em;
+    padding-top: 0.5em; 
+}
+
+.clock {
+    margin: 0 20px;
+    font-weight: bold; 
+}
+
+progress, highlight {
+    background-color: aqua;
+    min-height: 8px;
+}
+
+/* Revealer for system tray! */
+
+.tray {
+    margin: 0 15px;
+    font-weight: bold; 
+}
+
+/* calendar */
+.txt-smallie {
+  /* font-family: 'Geist', 'AR One Sans', 'Reddit Sans', 'Inter', 'Roboto', 'Noto Sans', 'Ubuntu', sans-serif; */
+  font-size: 1rem;
+}
+
+.icon-material {
+  font-family: 'Material Symbols Rounded', 'Material Symbols Outlined', 'Material Symbols Sharp';
+}
+
+.sidebar-calendar-btn {
+    border-radius: 9999px;
+    -gtk-outline-radius: 9999px;
+    transition: 300ms cubic-bezier(0.1, 1, 0, 1);
+    min-height: 2.523rem;
+    min-width: 2.523rem;
+    color: #e7e1e6;
+}
+
+.sidebar-calendar-btn:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.sidebar-calendar-btn:active {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.sidebar-calendar-btn-txt {
+  margin-left: -10.341rem;
+  margin-right: -10.341rem;
+}
+
+.sidebar-calendar-btn-today {
+  background-color: #d6baff;
+  color: #3d1c70;
+}
+
+.sidebar-calendar-btn-today:hover {
+  background-color: rgba(212, 185, 253, 0.93);
+}
+
+.sidebar-calendar-btn-today:active {
+  background-color: rgba(208, 182, 246, 0.79);
+}
+.sidebar-calendar-btn-othermonth {
+  color: #837f83;
+}
+
+.sidebar-calendar-header {
+  margin: 0.341rem;
+}
+
+.sidebar-calendar-monthyear-btn {
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  padding: 0rem 0.682rem;
+  background-color: rgba(40, 38, 43, 0.31);
+  color: #cbc4cf;
+}
+
+.sidebar-calendar-monthyear-btn:hover {
+  background-color: rgba(76, 73, 80, 0.3445);
+  color: #c3bcc7;
+}
+
+.sidebar-calendar-monthyear-btn:active {
+  background-color: #403e44;
+  color: #b3acb6;
+}
+
+.sidebar-calendar-monthshift-btn {
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  min-width: 2.045rem;
+  min-height: 2.045rem;
+  background-color: rgba(40, 38, 43, 0.31);
+  color: #cbc4cf;
+}
+
+.sidebar-calendar-monthshift-btn:hover {
+  background-color: rgba(76, 73, 80, 0.3445);
+  color: #c3bcc7;
+}
+
+.sidebar-calendar-monthshift-btn:active {
+  background-color: #403e44;
+  color: #b3acb6;
+}
+
+/*? APP LAUNCHER */
+
+.applauncher-window {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+    background-color: rgba(22, 23, 24, 0.78);
+    border-radius: 1.25em;
+}
+.applauncher-item {
+    /* background-color: rgba(67, 69, 72, 0.4); */
+    background-color: rgba(192,202,245,0.08);
+    
+    padding-top: 0.5em;
+    padding-bottom : 0.5em;
+    border-radius: 0.4em;
+    /* margin-left: 2.5em; */
+    padding-left: 0.5em;
+}
+.applauncher-item:hover {
+    background-color: rgba(22, 23, 24, 0.78);
+}
+.applauncher-item:focus {
+  /* background-color: #403e44; */
+  /* color: #b3acb6; */
+    border-top: 0.15rem solid rgba(172,194,220,0.08);
+    border-bottom: 0.15rem solid rgba(172,194,220,0.08);
+    border-left: 0.15rem solid rgba(172,194,220,0.08);
+    border-right: 0.15rem solid rgba(172,194,220,0.08);
+}
+.applauncher-item-icon {
+    margin-right: 0.5em;
+
+}
+.applauncher-item-title {
+    font-weight: bold; 
+    color: rgb(192,202,245);
+
+}
+.applauncher-item-description {
+    margin-left: 0.5em;
+    color: rgb(192,202,245);
+}
+.applauncher-entry {
+    border-top: 0.168rem solid rgba(192,202,245, 0.85);
+    border-bottom: 0.168rem solid rgba(192,202,245, 0.85);
+    border-left: 0.168rem solid rgba(192,202,245, 0.85);
+    border-right: 0.168rem solid rgba(192,202,245, 0.85);
+    color: rgb(192,202,245);
+
+    /* background-color: rgba(67, 69, 72, 0.4); */
+    background-color: rgba(192,202,245,0.08);
+    padding-top: 0.5em;
+    padding-bottom : 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0.4em;
+
+}
+
+/*? NOTIFICATIONS */
+
+.notification-title {
+    border-top: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-bottom: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-left: 0.068rem solid rgba(255, 255, 255, 0.45);
+    border-right: 0.068rem solid rgba(255, 255, 255, 0.45);
+
+    background-color: rgba(24, 25, 26, 0.779);
+    border-radius: 1.25em;
+
+    padding-right: 1em;
+    padding-left: 0.5em;
+
+    margin-top: 0.5em;
+}
+.notification-object-image {
+    border-radius: 100%;
+    padding-right: 1em;
+    padding-left: 0.5em;
+
+}
+
+.notification-object-title {
+    font-size: 12px;
+}
+.notification-object-summary {
+    font-size: 16px;
+}
+
+.osd-notifs {
+    min-height: 2px;
+    min-width: 2px;
+}
+
+
+.test-background {
+    /* background-color: rgba(255, 0, 0, 0.138); */
+
+}
+
+/* for menu stuff */
+menu {
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 0.681rem;
+  background: #28262b;
+  color: #cbc4cf;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem; }
+
+menubar > menuitem {
+  border-radius: 0.545rem;
+  -gtk-outline-radius: 0.545rem;
+  min-width: 13.636rem;
+  min-height: 2.727rem; }
+
+menu > menuitem {
+  padding: 0.4em 1.5rem;
+  background: transparent;
+  transition: 0.2s ease background;
+  border-radius: 0.545rem;
+  -gtk-outline-radius: 0.545rem; }
+
+menu > menuitem:hover {
+  background-color: #38363b; }
+
+.separator-line {
+  background-color: #28262b;
+  min-width: 0.068rem;
+  min-height: 0.068rem; }
