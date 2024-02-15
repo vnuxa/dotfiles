@@ -1,1 +1,0 @@
-an old rice, made to look ljke an old vaxry's rice that I really liked
