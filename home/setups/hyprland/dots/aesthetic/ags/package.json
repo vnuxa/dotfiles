@@ -1,0 +1,6 @@
+{
+    "main": "config.js",
+    "dependencies": {
+        "fzf": "^0.5.2"
+    }
+}
